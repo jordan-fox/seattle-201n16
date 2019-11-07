@@ -9,11 +9,15 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sum(a, b) { //eslint-disable-line
-
+  var addAnswer = a + b;
+  var sumStatement = 'The sum of ' + a + ' and ' + b + ' is ' + addAnswer + '.';
+  var sumArray = [addAnswer, sumStatement];
+  return sumArray;
+  console.log(sum(4, 7));
 }
 
 // Here is the test for sum(); uncomment it to run it
-// testSum(4, 7);
+testSum(4, 7);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
@@ -27,10 +31,10 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function multiply(a, b) { //eslint-disable-line
-  var product = a * b;
-  var statement = 'The product of ' + a + ' and ' + b + ' is ' + product + '.';
-  var Array = [product, statement];
-  return Array;
+  var productAnswer = a * b;
+  var productStatement = 'The product of ' + a + ' and ' + b + ' is ' + productAnswer + '.';
+  var productArray = [productAnswer, productStatement];
+  return productArray;
   console.log(multiply(5,9));
 }
 
@@ -52,11 +56,30 @@ Test this function by hand in the console to get it working, and when you think 
 
 // Write your code here
 function sumAndMultiply(a, b, c) { //eslint-disable-line
+  var frontSum = sum(a, b);
+  console.log('frontSum: ', frontSum[0]);
+  var totalSum = sum(frontSum[0], c);
+  console.log('totalSum: ', totalSum[0]);
 
+  var frontProduct = multiply(a, b);
+  console.log('frontProduct: ', frontProduct[0]);
+
+  var totalProduct = multiply(frontProduct[0], c);
+  console.log('totalProduct: ', totalProduct[0]);
+
+  var statementThree = a + ' and ' + b + ' and ' + c + ' sum to ' + totalSum[0] + '.';
+
+  var statementFour = 'The product of ' + a + ' and ' + b + ' and ' + c + ' is ' + totalProduct[0] + '.';
+
+  var addProductArray = [totalSum[0], totalProduct[0], statementThree, statementFour];
+  console.log(addProductArray);
+
+  return addProductArray;
 }
+console.log(sumAndMultiply(4, 7, 5));
 
 // Here is the test for sumAndMultiply(); uncomment it to run it
-// testSumAndMultiply(4,7,5);
+testSumAndMultiply(4,7,5);
 
 // Once you get the test passing, do an a-c-p cycle and synchronize the code between GitHub and your laptop. Don't forget to create a new branch for your work on the next question!
 
